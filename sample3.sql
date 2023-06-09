@@ -113,7 +113,7 @@ FROM REGIONS NATURAL JOIN COUNTRIES; -- '★ 쿼리'와 똑같은 결과물이 �
 -- USING 절
 SELECT *
 FROM REGIONS JOIN COUNTRIES
-USING (REGION_ID) -- 바로 위 쿼리와 '★ 쿼리'와 똑같은 결과물이 나온다, 별칭 지정 필요 없다
+USING (REGION_ID); -- 바로 위 쿼리와 '★ 쿼리'와 똑같은 결과물이 나온다, 별칭 지정 필요 없다
 
 
 -- 3개 테이블 조인

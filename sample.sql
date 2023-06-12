@@ -1,4 +1,4 @@
--- CONCAT: ¹®ÀÚ¿­ ÇÕÄ¡±â
+-- CONCAT: ë¬¸ìžì—´ í•©ì¹˜ê¸°
 SELECT 
     FIRST_NAME,
     LAST_NAME,
@@ -6,40 +6,40 @@ SELECT
 FROM EMPLOYEES;
 
 
--- || »ç¿ëÇÏ¿© ¹®ÀÚ¿­ ÇÕÄ¡±â
--- " " Å«µû¿ÈÇ¥´Â ¿À·ù ¹ß»ý, »çÀÌ¿¡ ¶ç¾î¾²±â ÀÖÀ» ¶§ Å« µû¿ÈÇ¥ »ç¿ë
+-- || ì‚¬ìš©í•˜ì—¬ ë¬¸ìžì—´ í•©ì¹˜ê¸°
+-- " " í°ë”°ì˜´í‘œëŠ” ì˜¤ë¥˜ ë°œìƒ, ì‚¬ì´ì— ë„ì–´ì“°ê¸° ìžˆì„ ë•Œ í° ë”°ì˜´í‘œ ì‚¬ìš©
 SELECT FIRST_NAME || ' ' || LAST_NAME AS NAME 
 FROM EMPLOYEES;
 
 
--- SUBSTR: ¹®ÀÚ¿­ ÀÚ¸£±â
+-- SUBSTR: ë¬¸ìžì—´ ìžë¥´ê¸°
 SELECT 
     TO_CHAR(ORDER_DATE, 'YYYY-MM-DD') AS ORDER_DATE,
-    SUBSTR(ORDER_DATE, 1, 4) AS ÁÖ¹®³âµµ,
-    SUBSTR(ORDER_DATE, 6, 2) AS ÁÖ¹®¿ù, -- 6¹øÂ°ºÎÅÍ 2±ÛÀÚ °¡Á®¿À±â
-    SUBSTR(ORDER_DATE, 9, 2) AS ÁÖ¹®ÀÏ
+    SUBSTR(ORDER_DATE, 1, 4) AS ì£¼ë¬¸ë…„ë„,
+    SUBSTR(ORDER_DATE, 6, 2) AS ì£¼ë¬¸ì›”, -- 6ë²ˆì§¸ë¶€í„° 2ê¸€ìž ê°€ì ¸ì˜¤ê¸°
+    SUBSTR(ORDER_DATE, 9, 2) AS ì£¼ë¬¸ì¼
 FROM ORDERS;
 
 
--- TO_CHAR: ¼ýÀÚ³ª ³¯Â¥¸¦ ¹®ÀÚ¿­·Î º¯È¯
--- TO_NUMBER: ¹®ÀÚ¿­À» ¼ýÀÚ·Î º¯È¯
--- TO_DATE: ¹®ÀÚ¿­À» ³¯Â¥·Î º¯È¯
+-- TO_CHAR: ìˆ«ìžë‚˜ ë‚ ì§œë¥¼ ë¬¸ìžì—´ë¡œ ë³€í™˜
+-- TO_NUMBER: ë¬¸ìžì—´ì„ ìˆ«ìžë¡œ ë³€í™˜
+-- TO_DATE: ë¬¸ìžì—´ì„ ë‚ ì§œë¡œ ë³€í™˜
 
 
 SELECT 
     TO_CHAR(ORDER_DATE, 'YYYY-MM-DD') AS ORDER_DATE,
-    EXTRACT(YEAR FROM ORDER_DATE) AS ÁÖ¹®³âµµ, -- ÇÊ¿äÇÑ ºÎºÐ ÃßÃâ
-    EXTRACT(MONTH FROM ORDER_DATE) AS ÁÖ¹®¿ù,
-    EXTRACT(DAY FROM ORDER_DATE) AS ÁÖ¹®ÀÏ
+    EXTRACT(YEAR FROM ORDER_DATE) AS ì£¼ë¬¸ë…„ë„, -- í•„ìš”í•œ ë¶€ë¶„ ì¶”ì¶œ
+    EXTRACT(MONTH FROM ORDER_DATE) AS ì£¼ë¬¸ì›”,
+    EXTRACT(DAY FROM ORDER_DATE) AS ì£¼ë¬¸ì¼
 FROM ORDERS;
 
 
 SELECT
-    CATEGORY_ID, -- ¹«Á¶°Ç ±×·ì¹ÙÀÌÇÑ Ä«Å×°í¸®¸¦ ¸ÕÀú ½á¾ßÇÑ´Ù
+    CATEGORY_ID, -- ë¬´ì¡°ê±´! ê·¸ë£¹ë°”ì´í•œ ì¹´í…Œê³ ë¦¬ë¥¼ ë¨¼ì € ì¨ì•¼í•œë‹¤
     ROUND(AVG(STANDARD_COST), 2) AS AVG_COST,
     ROUND(AVG(LIST_PRICE), 2) AS AVG_PRICE
 FROM PRODUCTS
 GROUP BY CATEGORY_ID
 HAVING AVG(STANDARD_COST) > 1000
 AND AVG(LIST_PRICE) > 1400
-ORDER BY CATEGORY_ID; -- º¸Åë ±×·ì¹ÙÀÌÇÑ Ä«Å×°í¸®¸¦ ¿À´õ¹ÙÀÌ ÇÑ´Ù
+ORDER BY CATEGORY_ID; -- ë³´í†µ ê·¸ë£¹ë°”ì´í•œ ì¹´í…Œê³ ë¦¬ë¥¼ ì˜¤ë”ë°”ì´ í•œë‹¤

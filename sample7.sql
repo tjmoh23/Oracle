@@ -23,7 +23,8 @@ FROM(
     WHERE ANIMAL_ID NOT IN (SELECT ANIMAL_ID
                             FROM ANIMAL_OUTS)
     )
-WHERE RANK IN (1,2,3)
+WHERE RANK IN (1,2,3);
+
 
 -- DENSE_RANK가 아니라 ROW_NUMBER를 사용해야 한다!
 -- 공동 순위가 있을 경우, DENSE_RANK를 사용하면 3마리 이상의 값이 나올 수 있다.

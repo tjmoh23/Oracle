@@ -6,7 +6,7 @@ WHERE PRICE IN (SELECT MAX(PRICE)
 SELECT *
 FROM FOOD_PRODUCT
 WHERE PRICE = (SELECT MAX(PRICE)
-                FROM FOOD_PRODUCT) 
+                FROM FOOD_PRODUCT);
 
 -- 서브쿼리와 메인쿼리의 FROM절이 같으면 성능이 안 좋아질 수 있다
 

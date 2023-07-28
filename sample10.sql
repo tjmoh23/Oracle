@@ -57,4 +57,4 @@ ORDER BY REVIEW_DATE ASC, REVIEW_TEXT ASC;
 
 -- CROSS JOIN: 조인 조건이 없는 조인 방법
 -- 모든 조합에 대해 조인한다.
--- 관련 리트 코드 문제: https://leetcode.com/problems/students-and-examinations/
+-- 크로스 조인 관련 리트 코드 문제: https://leetcode.com/problems/students-and-examinations/

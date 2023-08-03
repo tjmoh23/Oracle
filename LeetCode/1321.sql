@@ -17,7 +17,7 @@ ORDER BY VISITED_ON
 
 
 
-주의 1) 
+주의 오답 1) 
 SELECT
     VISITED_ON,
     SUM_AMOUNT AS AMOUNT,
@@ -40,7 +40,7 @@ WHERE ROWNUM >= 7 -- ROWNUM = 7 안 된다. ROWNUM >= 7 안 된다! ! !
 
   
 
-주의 2)
+주의 오답답 2)
 SELECT
     TO_CHAR(VISITED_ON, 'YYYY-MM-DD') AS VISITED_ON,
     SUM_AMOUNT AS AMOUNT,

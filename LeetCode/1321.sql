@@ -40,7 +40,7 @@ WHERE ROWNUM >= 7 -- ROWNUM = 7 안 된다. ROWNUM >= 7 안 된다! ! !
 
   
 
-주의 오답답 2)
+주의 오답 2)
 SELECT
     TO_CHAR(VISITED_ON, 'YYYY-MM-DD') AS VISITED_ON,
     SUM_AMOUNT AS AMOUNT,

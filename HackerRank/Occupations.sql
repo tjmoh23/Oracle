@@ -17,3 +17,6 @@ FROM(
     )
 GROUP BY NB
 ORDER BY NB;
+
+
+-- 문제 출처: https://www.hackerrank.com/challenges/occupations/problem?isFullScreen=true

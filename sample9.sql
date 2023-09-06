@@ -19,7 +19,17 @@ WHERE REGEXP_LIKE(STATE, '^[sbo]', 'i')
 -- [ ]: 문자 하나씩 고려 / 쓰지 않는다면 하나의 문자열로 본다 (예)'^[South]' / '^South'
 -- 두 개의 조건을 만족하고 싶다면 AND 절로 써야 한다! 한번에 쓸 수 있는데 다른 조건이 필요함
 
+    
 
+-- 정규표현식을 만족하지 않는 쿼리를 작성하고 싶다면?
+SELECT
+    DISTINCT CITY
+FROM STATION
+WHERE NOT REGEXP_LIKE(CITY, '^[aieou]', 'i'); -- NOT 사용
+
+
+
+-- 정규표현식 복합적으로 사용하기
 SELECT FRIST_NAME, LAST_NAME
 FROM EMPLOYEES
 WHERE REGEXP_LIKE(LAST_NAME, '^Ha(milt|rri)son$')

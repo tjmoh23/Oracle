@@ -1,0 +1,27 @@
+-- 다른 방법 있는지 확인해보기
+-- 특정 성적 이하의 학생 이름은 NULL로 표현
+
+SELECT
+    MN,
+    CASE 
+    WHEN MARKS BETWEEN 0 AND 9 THEN 1 
+    WHEN MARKS BETWEEN 10 AND 19 THEN 2
+    WHEN MARKS BETWEEN 20 AND 29 THEN 3
+    WHEN MARKS BETWEEN 30 AND 39 THEN 4
+    WHEN MARKS BETWEEN 40 AND 49 THEN 5
+    WHEN MARKS BETWEEN 50 AND 59 THEN 6
+    WHEN MARKS BETWEEN 60 AND 69 THEN 7
+    WHEN MARKS BETWEEN 70 AND 79 THEN 8
+    WHEN MARKS BETWEEN 80 AND 89 THEN 9
+    ELSE 10 END AS GRADE,
+    MARKS
+FROM(
+        SELECT
+            NAME,
+            MARKS,
+            CASE WHEN MARKS >= 70 THEN NAME ELSE NULL END AS MN
+        FROM STUDENTS
+    )
+ORDER BY GRADE DESC, NAME;
+
+-- 문제 출처: https://www.hackerrank.com/challenges/the-report/problem?isFullScreen=true

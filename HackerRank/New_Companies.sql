@@ -1,4 +1,5 @@
 -- 대기업 임직원 수 구하기
+-- OUTTER JOIN과 INNER JOIN 중복된 데이터 출력되지 않도록 잘 조인하기
 
 SELECT
     C.COMPANY_CODE, C.FOUNDER, 

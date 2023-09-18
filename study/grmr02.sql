@@ -12,7 +12,7 @@
 -- base_date가 int 타입으로, 20230912 형태일 때
   
 select
-	  cast(base_date as char), -- 20230912 숫자 -> 문자
+    cast(base_date as char), -- 20230912 숫자 -> 문자
     convert(BASE_DATE, CHAR) -- 20230912 숫자 -> 문자
     cast(base_date as date), -- 2023-09-12 
     from_unixtime(base_date, '%Y-%m-%d'), -- 1970-09-12

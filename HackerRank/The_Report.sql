@@ -24,4 +24,22 @@ FROM(
     )
 ORDER BY GRADE DESC, NAME;
 
+
+
+-- 일일이 case when 사용하지 않고 grades 테이블을 바로 조인할 수 있다.
+-- 공통된 키가 없더라도 조인 가능!
+
+-- 다른 풀이
+select
+    case 
+    when marks >= 70 then name else null end as name,
+    grade, marks
+from(
+        select
+            s.name, g.grade, g.min_mark, s.marks, g.max_mark
+        from students s, grades g
+        where s.marks between g.min_mark and g.max_mark -- 조인을 이렇게도 할 수 있다 ★★★ !!!
+    )
+order by grade desc, name;
+
 -- 문제 출처: https://www.hackerrank.com/challenges/the-report/problem?isFullScreen=true

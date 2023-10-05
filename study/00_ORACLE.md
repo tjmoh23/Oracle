@@ -57,5 +57,47 @@ CREATE TABLE 테이블명 (
   ```
     SELECT * FROM 테이블명
   ```
+### ROWNUM
+ORACLE에서는 테이블을 만들지 않아도 ROWNUM을 사용하여 **조회된 행이 몇 번째 행인지 값을 부여할 수 있다**\
+(*MySQL에서는 실행이 안 됨*을 확인)
+  ```
+    SELECT ROWNUM, N
+    FROM BST
+    -- 해커랭크  Binary Tree Nodes 문제
+  ```
+ROWNUM을 사용한 곳에 ORDER BY를 사용하면 안 된다.
+- ROWNUM을 역순으로 사용하고 싶을 경우, 바깥에서 ```ORDER BY ROWNUM DESC```
+- ROWNUM을 사용해 몇 개의 행만 가져오려 하는 경우 ```WHERE ROWNUM BETWEEN 1 AND 3```
+  
+
+### INTERSECT(교집합)
+ORACLE에서, 두 SELECT문에서 겹치는 내용만을 가져올 때 사용
+(*MySQL에서는 실행이 안 됨*을 확인)
+```
+    SELECT A FROM TABLE1
+  INTERSECT
+    SELECT B FROM TABLE2 -- TABLE1에서의 A와 TABLE2에서의 B 사이에 같은 값만 출력
+```
+
+### MINUS(차집합)
+ORACLE에서, 두 SELECT문에서 중복되는 내용을 제외하고 가져올 때 사용, 위에 있는 테이블을 기준으로 기능을 수행
+
+두 컬럼의 중복을 비교하는 것이기 때문에 반드시 컬럼을 동일하게 맞춰야 한다
+(*MySQL에서는 실행이 안 됨*을 확인)
+```
+    SELECT A FROM TABLE1
+  MINUS
+    SELECT B FROM TABLE2 -- TABLE1에서의 A와 TABLE2에서의 B 사이에 같은 값만 출력
+```
+
+### LIKE IN (REGEXP_LIKE)
+다중 LIKE 사용하기 ``` REGEXP_LIKE(컬럼명, '값1|값2|값3')```
+```
+  SELECT NAME
+  FROM BUY_CONTENTS
+  WHERE REGEXP_LIKE(NAME, '코|구|원') -- '코', '구', '원' 중 포함되는 글자가 있으면 출력
+```
+
+
 참고 링크
 https://wakestand.tistory.com/notice/412

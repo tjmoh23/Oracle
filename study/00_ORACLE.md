@@ -33,7 +33,29 @@ CREATE TABLE 테이블명 (
 
 
 ### INSERT, UPDATE, DELETE, SELECT
+- INSERT
+  - 테이블에 행 추가
+  ```
+    INSERT INTO 테이블명(컬럼명) VALUES('값') -- 해당 컬럼에 값 입력하여 행 추가
+    INSERT INTO 테이블명 VALUES('값', '값' ..) -- 테이블 컬럼 순서대로 값 입력
+  ```
 
-
+- UPDATE
+  - 추가한 내용 수정, WHERE절을 넣지 않을 경우 테이블 전체 내용이 바뀌므로 주의
+  ```
+    UPDATE 테이블명
+      SET 컬럼명 = 'VALUE1'
+      WHERE 컬럼명 = 'VALUE2' -- 해당 테이블의 특정 컬럼의 값이 'VALUE1'인 값들을 모두 'VALUE2'로 바꾼다
+  ```
+- DELETE
+  - 행 삭제, WHERE절을 넣지 않을 경우 테이블 전체가 지워지므로 주의
+  ```
+    DELETE FROM 테이블명 WHERE 컬럼명 = 'VALUE1' -- 해당 테이블의 특정 컬럼의 값이 'VALUE1'인 행 삭제
+  ``` 
+- SELECT
+  - 행 조회
+  ```
+    SELECT * FROM 테이블명
+  ```
 참고 링크
 https://wakestand.tistory.com/notice/412

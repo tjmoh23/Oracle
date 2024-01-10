@@ -21,5 +21,11 @@ from sample_table;
 
 
 
+-- 연도 기준 주차 구하기 (날짜 string 타입일 때)
+
+WEEKOFYEAR(FROM_UNIXTIME(UNIX_TIMESTAMP(BASE_DATE, 'yyyymmdd'), 'yyyy-mm-dd'))
+-> weekofyear() 함수는 데이터 포맷이 'yyyy-mm-dd' 형식이어야 한다. (Hive 기준)
+
+
 -- mysql 형변환 참고 링크
 -- https://kwonyang.tistory.com/20
